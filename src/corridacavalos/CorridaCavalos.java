@@ -34,12 +34,13 @@ public class CorridaCavalos {
         }
 	
         for (int j = 0; j < cavalos.length; ++j) {
+            
+            
             cavalos [j].join();
            
         }
         System.out.println ("Corrida terminada.");
     
-        Cavalo c = new Cavalo(""); 
         
         
     }

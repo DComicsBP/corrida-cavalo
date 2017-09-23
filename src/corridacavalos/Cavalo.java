@@ -14,25 +14,25 @@ public  class Cavalo implements Runnable {
         this.nome = nome; 
     }
     
-     Random r = new Random();
     
     public void run() {
         
         long t = 0; 
-        
+        this.auxiliarControle = (int) gerarTempoAleatorio();
         
         try {
             do{
             
                 
-                this.auxiliarControle = (int) this.gerarTempoAleatorio(); 
+                 
                 
-                System.out.println("Aux- COntrole = " + this.auxiliarControle);
+                
                 this.setDecrementa(gerarDistanciaAleatoria());
                
-                Thread.sleep(r.nextInt (100), this.getDecrementa());
+                Thread.sleep(this.auxiliarControle, this.getDecrementa());
                 
-                this.setMax(this.getMax()-this.decrementa);
+                this.setMax(this.getMax()-this.getDecrementa());
+                
                 
                 if(this.getMax() <0){
                     this.setMax(0);
@@ -42,7 +42,7 @@ public  class Cavalo implements Runnable {
             
                 t += (long) this.auxiliarControle; 
                 
-            }while(this.getMax()>this.getMin());
+            }while(this.getMax()>this.getMin() && this.getMax()>0);
             
             
         } catch (InterruptedException ex) {
